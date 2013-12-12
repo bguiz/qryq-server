@@ -25,5 +25,12 @@
     "express": "~3.4.6",
     "q": "~0.9.7",
     "underscore": "~1.5.2"
+  },
+  "config": {
+    "port": 9999,
+    "static": "static",
+    "apiQryq": "/api/v1/qryq",
+    "maxReqLength": 1000000,
+    "debug": true
   }
 }
