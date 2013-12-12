@@ -1,6 +1,6 @@
 {
   "name": "qryq-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A scaffold server for qryq",
   "main": "server.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/bguiz/qryq-server",
   "dependencies": {
-    "qryq": "0.0.9",
+    "qryq": "0.0.10",
     "express": "~3.4.6",
     "q": "~0.9.7",
     "underscore": "~1.5.2"
