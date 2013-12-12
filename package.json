@@ -1,0 +1,29 @@
+{
+  "name": "qryq-server",
+  "version": "0.0.0",
+  "description": "A scaffold server for qryq",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodeunit test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bguiz/qryq-server.git"
+  },
+  "keywords": [
+    "qryq",
+    "express"
+  ],
+  "author": "Brendan Graetz <@bguiz> (http://bguiz.com/)",
+  "license": "GPL v3",
+  "bugs": {
+    "url": "https://github.com/bguiz/qryq-server/issues"
+  },
+  "homepage": "https://github.com/bguiz/qryq-server",
+  "dependencies": {
+    "qryq": "0.0.9",
+    "express": "~3.4.6",
+    "q": "~0.9.7",
+    "underscore": "~1.5.2"
+  }
+}
