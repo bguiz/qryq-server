@@ -31,6 +31,27 @@ Next modify `api.js` to include the functions you want to expose via a `qryq` en
 	#edit api.js
 	node server.js
 
+## Testing that it works
+
+Test that serving static files works:
+
+	curl -i -X GET http://localhost:9999/static/index.html
+
+Test that non-qryq end point works:
+
+	curl -i -X GET http://localhost:9999/hello
+
+Test that qryq end point works:
+
+	curl -i -X POST \
+	-d '[
+	{"id": "A", "api": "add", "qry":{"a":3, "b":4}},
+	{"id": "B", "api": "multiply", "qry":{"a":"#{A}", "b":3}},
+	{"id": "C", "api": "multiply", "qry":{"a":7, "b": "#{A}"}},
+	{"id": "D", "api": "add", "qry":{"a":"#{C}", "b":"#{B}"}}
+	]' \
+	http://localhost:9999/api/v1/qryq
+
 ----
 
 &copy; [Brendan Graetz](http://bguiz.com) 2013

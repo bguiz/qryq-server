@@ -16,12 +16,34 @@ var maxReqLength = config.maxReqLength || 1000000;
 var debugMode = !! config.debug;
 
 var server = express();
+
+/*
+ * Static files are served if enabled in config
+ *
+curl -i -X GET http://localhost:9999/static/index.html
+ *
+ */
 if (staticFiles) {
 	server.use(express.static(__dirname+'/'+staticFiles));
 }
 if (debugMode) {
 	server.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 }
+
+/*
+ * Expose endpoints that do not use qryq, e.g.:
+ *
+curl -i -X GET http://localhost:9999/hello
+ *
+ */
+server.get('/hello', function(req, resp) {
+  resp.contentType('text/plain');
+  resp.send(200, "world");
+});
+
+server.listen(portNumber);
+console.log(npmPackage.name, 'v'+npmPackage.version, 'listening on port', portNumber);
+console.log('qryq endpoint exposed at', apiUrl);
 
 /*
  * Middleware that parses a request in chunks as it is received.
@@ -98,18 +120,3 @@ server.post(apiUrl, [parseJsonMw], function(req, resp) {
 		resp.send(500, JSON.stringify(_.extend(out, {reason: reason})));
 	});
 });
-
-/*
- * You can still expose endpoints that do not use qryq, e.g.:
- *
-curl -i -X GET http://localhost:9999/hello
- *
- */
-server.get('/hello', function(req, resp) {
-  resp.contentType('text/plain');
-  resp.send(200, "world");
-});
-
-server.listen(portNumber);
-console.log(npmPackage.name, 'v'+npmPackage.version, 'listening on port', portNumber);
-console.log('qryq endpoint exposed at', apiUrl);
