@@ -4,21 +4,25 @@ A server for [qryq](https://github.com/bguiz/qryq)
 
 ## Purpose
 
-Many who have watched me give a talk on qryq [(slide deck here)](http://bguiz.github.io/qryq/), have asked, "so, how do I actually start using thsi library?"
+Many who have watched me give a talk on qryq [(slide deck here)](http://bguiz.github.io/qryq/),
+have asked, "so, how do I actually start using this library?"
 
-My answer to that would be that it is a general purpose library, just follow the instruction on the main `README.md` on the qryq page, and use its unit tests as a reference for how to put it all together.
+My answer to that would be that it is a general purpose library,
+just follow the instructions on the main `README.md` on the qryq page,
+and use its unit tests as a reference for how to put it all together.
 
 ## Make it even easier
 
-Each time though, I thought, perhaps I could do one better than that. [Greg](https://github.com/gregory144) suggested that I create a sample server that exposed a qryq end point.
+Each time though, I thought, perhaps I could do one better than that.
+[Greg](https://github.com/gregory144) suggested that I create a sample server that exposed a `qryq` end point.
 
-Well here it is!
+Here it is!
 
 ## How to use this project
 
-Do **not** git clone this project, unless of course you are actually contributing to this project.
+Do **not** git clone this project, unless of course you wish to contribute to this project.
 
-What you will want to do instead is [download a copy of qryq-server](https://github.com/bguiz/qryq-server/archive/master.zip), and then copy its extracted contents into your own project.
+Instead, [download a copy of qryq-server](https://github.com/bguiz/qryq-server/archive/master.zip), and then copy its extracted contents into your own project.
 
 	cd path/to/your/project
 	wget https://github.com/bguiz/qryq-server/archive/master.zip
@@ -31,7 +35,13 @@ Next modify `api.js` to include the functions you want to expose via a `qryq` en
 	#edit api.js
 	node server.js
 
-## Testing that it works
+Note that if your project already has the server defined,
+or you wish to use something other than [express](http://expressjs.com/),
+you will need to copy selectively from these files.
+
+## Putting it together
+
+Once you have started the server, enter the following commands to verify that the server works.
 
 Test that serving static files works:
 
